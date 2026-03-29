@@ -2,39 +2,28 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
+import com.codeborne.selenide.Condition;
+
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-    private final SelenideElement usernameField = $(By.name("username"));
-    private final SelenideElement passwordField = $(By.name("password"));
-    private final SelenideElement loginButton = $(By.xpath("//button[@type='submit']"));
-
-    public LoginPage openPage() {
-        open("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        return this;
-    }
-
-    public LoginPage enterUsername(String username) {
-        usernameField.setValue(username);
-        return this;
-    }
-
-    public LoginPage enterPassword(String password) {
-        passwordField.setValue(password);
-        return this;
-    }
-
-    public LoginPage clickLogin() {
+    public SelenideElement usernameField = $(By.name("username"));
+    public SelenideElement passwordField = $(By.name("password"));
+    public SelenideElement loginButton = $(By.xpath("//button[@type='submit']"));
+    public SelenideElement errorMessage =$(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"));
+    public void Creds(String user, String pass){
+        usernameField.setValue(user);
+        usernameField.shouldHave(Condition.exactValue(user));
+        passwordField.setValue(pass);
+        passwordField.shouldHave(Condition.exactValue(pass));
         loginButton.click();
-        return this;
+
+    }
+    public void checkErrorMessage(){
+        errorMessage.shouldHave(Condition.visible);
+        errorMessage.shouldHave(Condition.exactText("Invalid credentials"));
     }
 
-    public LoginPage login(String username, String password) {
-        return enterUsername(username)
-                .enterPassword(password)
-                .clickLogin();
-    }
 }
