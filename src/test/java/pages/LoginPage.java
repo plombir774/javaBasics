@@ -9,20 +9,20 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
 
-    public SelenideElement usernameField = $(By.name("username"));
-    public SelenideElement passwordField = $(By.name("password"));
-    public SelenideElement loginButton = $(By.xpath("//button[@type='submit']"));
-    public SelenideElement errorMessage =$(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"));
+    private final SelenideElement usernameField = $(By.name("username"));
+    private final  SelenideElement passwordField = $(By.name("password"));
+    private final SelenideElement loginButton = $(By.xpath("//button[@type='submit']"));
+    private final  SelenideElement errorMessage =$(By.xpath("//p[@class='oxd-text oxd-text--p oxd-alert-content-text']"));
     public void Creds(String user, String pass){
-        usernameField.setValue(user);
+        usernameField.shouldBe(Condition.visible).setValue(user);
         usernameField.shouldHave(Condition.exactValue(user));
-        passwordField.setValue(pass);
+        passwordField.shouldBe(Condition.visible).setValue(pass);
         passwordField.shouldHave(Condition.exactValue(pass));
-        loginButton.click();
+        loginButton.shouldBe(Condition.enabled).click();
 
     }
     public void checkErrorMessage(){
-        errorMessage.shouldHave(Condition.visible);
+        errorMessage.shouldBe(Condition.visible);
         errorMessage.shouldHave(Condition.exactText("Invalid credentials"));
     }
 
