@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 
         public class BaseTest {
 
-            public LoginPage loginPage = new LoginPage();
+            private final LoginPage loginPage = new LoginPage();
 
             @BeforeMethod
             public void setUp() {

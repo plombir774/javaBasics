@@ -9,18 +9,18 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class BasePage {
 
-    public SelenideElement buzzMenu = $(byText("Buzz"));
+    private final SelenideElement buzzMenu = $(byText("Buzz"));
 
   public void goToBuzz(){
       buzzMenu.shouldBe(visible).click();
   }
 
-  public SelenideElement time = $(byXpath("(//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name']) [4]"));
+  private final SelenideElement time = $(byXpath("(//span[@class='oxd-text oxd-text--span oxd-main-menu-item--name']) [4]"));
 
   public void goToTime(){
       time.shouldBe(visible).click();
   }
-public SelenideElement main =$(byText("Maintenance"));
+private final SelenideElement main =$(byText("Maintenance"));
 
   public void goToMain(){
       main.shouldBe(visible).click();

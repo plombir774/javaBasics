@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TimePage extends BasePage {
 
-    public SelenideElement employeeInput = $(byXpath("//input[@placeholder='Type for hints...']"));
-    public SelenideElement viewButton = $(byXpath("//button[@type='submit']"));
-    public SelenideElement errorMessage = $(byText("Required"));
+    private final SelenideElement employeeInput = $(byXpath("//input[@placeholder='Type for hints...']"));
+    private final SelenideElement viewButton = $(byXpath("//button[@type='submit']"));
+    private final SelenideElement errorMessage = $(byText("Required"));
 
 
     public void enterEmployeeName(String name) {

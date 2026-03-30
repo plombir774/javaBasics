@@ -5,7 +5,7 @@ import pages.MaintenancePage;
 
 public class MaintenanceTest extends BaseTest {
 
-    MaintenancePage main1 = new MaintenancePage();
+  private final  MaintenancePage main1 = new MaintenancePage();
 
     @Test
 

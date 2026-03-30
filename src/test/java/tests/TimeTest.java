@@ -5,7 +5,7 @@ import pages.TimePage;
 
 public class TimeTest extends BaseTest {
 
-    TimePage timepage = new TimePage();
+  private final  TimePage timepage = new TimePage();
 
     @Test
 

@@ -9,11 +9,11 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MaintenancePage  extends BasePage{
 
-    public SelenideElement mainInput = $(byXpath("//input[@placeholder='Type for hints...']"));
-    public SelenideElement btnSearch = $(byXpath("//button[@type='submit']"));
-    public SelenideElement errorMessage = $(byText("Required"));
-    public SelenideElement pass =$(byXpath("//input[@name='password']"));
-    public SelenideElement confirm = $(byXpath("//button[@type='submit']"));
+    private final SelenideElement mainInput = $(byXpath("//input[@placeholder='Type for hints...']"));
+    private final SelenideElement btnSearch = $(byXpath("//button[@type='submit']"));
+    private final  SelenideElement errorMessage = $(byText("Required"));
+    private final SelenideElement pass =$(byXpath("//input[@name='password']"));
+    private final SelenideElement confirm = $(byXpath("//button[@type='submit']"));
 
     public void employeeEmpty(){
         btnSearch.shouldBe(visible).click();

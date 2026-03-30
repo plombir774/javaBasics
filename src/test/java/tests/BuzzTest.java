@@ -6,7 +6,7 @@ import pages.BuzzPage;
 
 public class BuzzTest extends BaseTest {
 
-    BuzzPage basepage = new BuzzPage();
+    private final BuzzPage basepage = new BuzzPage();
 
     @Test
 
